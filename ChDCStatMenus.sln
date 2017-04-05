@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandObjectLib", "BandObjectLib\BandObjectLib.csproj", "{BDB3B670-A17B-483E-954C-52FC2B6FF9D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChDCStatMenusLibrary", "ChDCStatMenusLibrary\ChDCStatMenusLibrary.csproj", "{8736D2C0-4FF9-4885-BD9B-AA35088EA480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChDCStatMenus", "ChDCStatMenus\ChDCStatMenus.csproj", "{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Test|Any CPU = Test|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDB3B670-A17B-483E-954C-52FC2B6FF9D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDB3B670-A17B-483E-954C-52FC2B6FF9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDB3B670-A17B-483E-954C-52FC2B6FF9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDB3B670-A17B-483E-954C-52FC2B6FF9D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDB3B670-A17B-483E-954C-52FC2B6FF9D3}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{BDB3B670-A17B-483E-954C-52FC2B6FF9D3}.Test|Any CPU.Build.0 = Release|Any CPU
+		{8736D2C0-4FF9-4885-BD9B-AA35088EA480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8736D2C0-4FF9-4885-BD9B-AA35088EA480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8736D2C0-4FF9-4885-BD9B-AA35088EA480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8736D2C0-4FF9-4885-BD9B-AA35088EA480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8736D2C0-4FF9-4885-BD9B-AA35088EA480}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{8736D2C0-4FF9-4885-BD9B-AA35088EA480}.Test|Any CPU.Build.0 = Release|Any CPU
+		{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}.Test|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
