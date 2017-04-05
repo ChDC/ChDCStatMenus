@@ -10,7 +10,7 @@
     <ApplicationIcon />
     <AssemblyKeyContainerName />
     <AssemblyName>ChDCStatMenus</AssemblyName>
-    <AssemblyOriginatorKeyFile />
+    <AssemblyOriginatorKeyFile>ChDCStatMenus.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
@@ -79,6 +79,9 @@
     <DebugType>none</DebugType>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -173,7 +176,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="ChDCStatMenus.snk" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

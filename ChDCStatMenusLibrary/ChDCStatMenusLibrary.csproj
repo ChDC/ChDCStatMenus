@@ -52,7 +52,6 @@
     <Compile Include="TimeInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BandObjects.snk" />
     <None Include="ChDCStatMenusLibrary.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

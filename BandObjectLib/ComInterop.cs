@@ -175,7 +175,7 @@ namespace BandObjectLib
         new int CloseDW(UInt32 dwReserved);
 
         [PreserveSig]
-        new int ResizeBorderDW(RECT rcBorder, IntPtr punkToolbarSite, bool fReserved);
+        int ResizeBorderDW(RECT rcBorder, IntPtr punkToolbarSite, bool fReserved);
 
         #endregion
 

@@ -10,7 +10,7 @@
     <ApplicationIcon />
     <AssemblyKeyContainerName />
     <AssemblyName>BandObjectLib</AssemblyName>
-    <AssemblyOriginatorKeyFile>..\BandObjects.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>BandObjects.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
@@ -93,7 +93,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="BandObjects.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

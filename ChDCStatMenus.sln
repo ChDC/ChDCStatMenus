@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChDCStatMenusLibrary", "ChD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChDCStatMenus", "ChDCStatMenus\ChDCStatMenus.csproj", "{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChDCStatMenusLibraryTests", "ChDCStatMenusLibraryTests\ChDCStatMenusLibraryTests.csproj", "{C8F77292-4CD6-43FC-AE1F-ACFE71534EE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,12 @@ Global
 		{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}.Test|Any CPU.ActiveCfg = Release|Any CPU
 		{ACCDA683-C6AC-43DD-819F-4C3DE36E6BD7}.Test|Any CPU.Build.0 = Release|Any CPU
+		{C8F77292-4CD6-43FC-AE1F-ACFE71534EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8F77292-4CD6-43FC-AE1F-ACFE71534EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8F77292-4CD6-43FC-AE1F-ACFE71534EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8F77292-4CD6-43FC-AE1F-ACFE71534EE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8F77292-4CD6-43FC-AE1F-ACFE71534EE5}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{C8F77292-4CD6-43FC-AE1F-ACFE71534EE5}.Test|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

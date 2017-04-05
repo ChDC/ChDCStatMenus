@@ -89,7 +89,7 @@ namespace ChDCStatMenus
             control.BackgroundImage = b;
         }
 
-        private void NetworkSpeed_NotityInfoEvent(object sender, NetworkSpeed.NetworkSpeedInfo e)
+        private void NetworkSpeed_NotityInfoEvent(object sender, NetworkSpeedInfo e)
         {
             this.BeginInvoke(new Action(() => {
                 lblDownloadSpeed.Text = e.BytesReceivedSpeedString;
