@@ -18,6 +18,7 @@ namespace ChDCStatMenusLibrary.Tests
 
             Assert.AreEqual("0.9GB/s", NetworkSpeedInfo.GetSpeedString(1063700000));
             Assert.AreEqual("1KB/s", NetworkSpeedInfo.GetSpeedString(1025));
+            Assert.AreEqual("1KB/s", NetworkSpeedInfo.GetSpeedString(1116));
         }
     }
 }

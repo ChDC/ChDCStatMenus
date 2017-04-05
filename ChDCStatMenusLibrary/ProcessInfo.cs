@@ -56,6 +56,8 @@ namespace ChDCStatMenusLibrary
 
         public static string GetStorageSizeString(long storageSize)
         {
+            const int MAX_LENTH = 3;
+
             string[] units = { "K", "M", "G", "T", "P" };
             string unit = " ";
             double s = storageSize;
@@ -69,9 +71,19 @@ namespace ChDCStatMenusLibrary
                 else
                     break;
             }
-
-            String ss = s.ToString("G3");
-            ss = ss.Substring(0, ss.Length < 3 ? ss.Length : 3);
+            
+            String ss = s.ToString();
+            int i = ss.IndexOf('.');
+            if(i >= MAX_LENTH - 1)
+            {
+                ss = ss.Substring(0, i);
+            }
+            else if(i >= 0)
+            {
+                ss = ss.Substring(0, MAX_LENTH);
+                if(ss.Substring(i + 1).All(c => c == '0'))
+                    ss = ss.Substring(0, i);
+            }
             return String.Format("{0}{1}B", ss, unit.ToString());
         }
     }
