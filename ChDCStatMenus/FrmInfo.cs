@@ -32,7 +32,7 @@ namespace ChDCStatMenus
             timer.Interval = 1000;
             timer.Elapsed += (s, e1) => this.BeginInvoke(new Action(Timer_Elapsed));
 
-            NetworkSpeed networkSpeed = new NetworkSpeed(timer);
+            TotalNetworkSpeed networkSpeed = new TotalNetworkSpeed(timer);
             networkSpeed.Start();
             networkSpeed.NotityInfoEvent += NetworkSpeed_NotityInfoEvent;
 
@@ -92,6 +92,7 @@ namespace ChDCStatMenus
         private void NetworkSpeed_NotityInfoEvent(object sender, NetworkSpeedInfo e)
         {
             this.BeginInvoke(new Action(() => {
+                
                 lblDownloadSpeed.Text = e.BytesReceivedSpeedString;
                 lblUploadSpeed.Text = e.BytesSentSpeedString;
             }));

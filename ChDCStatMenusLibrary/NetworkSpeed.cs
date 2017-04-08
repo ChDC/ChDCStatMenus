@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
 using System.Net.NetworkInformation;
@@ -39,7 +40,7 @@ namespace ChDCStatMenusLibrary
             }
         }
 
-        NetworkInterface NIC;
+        public NetworkInterface NIC;
 
         public NetworkSpeedInfo()
         {
@@ -108,35 +109,41 @@ namespace ChDCStatMenusLibrary
         }
     }
 
-    public class NetworkSpeed
+    public class TotalNetworkSpeed
     {
 
         public event EventHandler<NetworkSpeedInfo> NotityInfoEvent;
 
         Timer timer;
-        NetworkInterface[] nics;
         NetworkSpeedInfo networkSpeedInfo = null;
 
-        public NetworkSpeed(double interval=1000) : this(new Timer(interval))
+        public TotalNetworkSpeed(double interval=1000) : this(new Timer(interval))
         {
 
         }
 
-        public NetworkSpeed(Timer timer)
+        public TotalNetworkSpeed(Timer timer)
         {
-            nics = NetworkInterface.GetAllNetworkInterfaces()
-                .Where(n => n.OperationalStatus == OperationalStatus.Up)
-                .ToArray();
-
             this.timer = timer;
             timer.Elapsed += Timer_Elapsed;
+        }
+
+        ~TotalNetworkSpeed()
+        {
+            this.timer?.Stop();
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             // get network speed
-            networkSpeedInfo = NetworkSpeedInfo.GetTotalNetworkSpeedInfo(nics, networkSpeedInfo, timer.Interval);
-            Notify(networkSpeedInfo);
+            if (NotityInfoEvent != null)
+            {
+                NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces()
+                    .Where(n => n.OperationalStatus == OperationalStatus.Up)
+                    .ToArray();
+                networkSpeedInfo = NetworkSpeedInfo.GetTotalNetworkSpeedInfo(nics, networkSpeedInfo, timer.Interval);
+                Notify(networkSpeedInfo);
+            }
         }
 
         /// <summary>
@@ -148,9 +155,81 @@ namespace ChDCStatMenusLibrary
             Timer_Elapsed(null, null);
         }
 
+        public void Stop()
+        {
+            timer.Stop();
+        }
+
         public void Notify(NetworkSpeedInfo info)
         {
             NotityInfoEvent?.Invoke(this, info);
+        }
+
+    }
+
+    public class NetworkSpeed
+    {
+
+        public event EventHandler<NetworkSpeedInfo[]> NotityInfoEvent;
+
+        Timer timer;
+        Dictionary<string, NetworkSpeedInfo> networkSpeedInfos = new Dictionary<string, NetworkSpeedInfo>();
+
+        public NetworkSpeed(double interval = 1000) : this(new Timer(interval))
+        {
+
+        }
+
+        public NetworkSpeed(Timer timer)
+        {
+            this.timer = timer;
+            timer.Elapsed += Timer_Elapsed;
+        }
+
+        ~NetworkSpeed()
+        {
+            this.timer?.Stop();
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            // get network speed
+            if (NotityInfoEvent != null)
+            {
+                NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces()
+                    .Where(n => n.OperationalStatus == OperationalStatus.Up &&
+                    (n.GetIPStatistics().BytesReceived != 0 ||
+                    n.GetIPStatistics().BytesSent != 0))
+                    .ToArray();
+                foreach(NetworkInterface nic in nics)
+                {
+                    NetworkSpeedInfo ni = null;
+                    if(networkSpeedInfos.ContainsKey(nic.Id))
+                        ni = networkSpeedInfos[nic.Id];
+                    ni = NetworkSpeedInfo.GetNetworkSpeedInfo(nic, ni, timer.Interval);
+                    networkSpeedInfos[nic.Id] = ni;
+                }
+                Notify(networkSpeedInfos.Values.OrderByDescending(n => n.BytesReceivedSpeed).ToArray());
+            }
+        }
+
+        /// <summary>
+        /// 开启获取
+        /// </summary>
+        public void Start()
+        {
+            timer.Start();
+            Timer_Elapsed(null, null);
+        }
+
+        public void Stop()
+        {
+            timer.Stop();
+        }
+
+        public void Notify(NetworkSpeedInfo[] infos)
+        {
+            NotityInfoEvent?.Invoke(this, infos);
         }
 
     }

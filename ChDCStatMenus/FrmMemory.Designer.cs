@@ -78,6 +78,7 @@
             // 
             // listProcessUsage
             // 
+            this.listProcessUsage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listProcessUsage.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnProcessName,
             this.columnUsage});

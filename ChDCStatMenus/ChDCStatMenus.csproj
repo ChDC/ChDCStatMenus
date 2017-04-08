@@ -154,6 +154,9 @@
     <EmbeddedResource Include="FrmMemory.resx">
       <DependentUpon>FrmMemory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNetwork.resx">
+      <DependentUpon>FrmNetwork.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPanel.resx">
       <DependentUpon>FrmPanel.cs</DependentUpon>
     </EmbeddedResource>

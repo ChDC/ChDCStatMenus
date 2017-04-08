@@ -135,7 +135,7 @@ namespace ChDCStatMenus
 
         private void DeskBand_Load(object sender, EventArgs e)
         {
-            NetworkSpeed networkSpeed = new NetworkSpeed();
+            TotalNetworkSpeed networkSpeed = new TotalNetworkSpeed();
             networkSpeed.Start();
             networkSpeed.NotityInfoEvent += NetworkSpeed_NotityInfoEvent;
         }
