@@ -18,6 +18,7 @@ namespace ChDCStatMenus
         private Label label1;
         private Label label2;
         private IContainer components;
+        private bool showFrmInfo = true;
 
         public DeskBand()
         {
@@ -89,7 +90,6 @@ namespace ChDCStatMenus
             this.lblDownloadSpeed.Text = "254KB/s";
             this.lblDownloadSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblDownloadSpeed.Click += new System.EventHandler(this.info_click);
-            this.lblDownloadSpeed.MouseHover += new System.EventHandler(this.info_hover);
             // 
             // lblUploadSpeed
             // 
@@ -104,7 +104,6 @@ namespace ChDCStatMenus
             this.lblUploadSpeed.Text = "128KB/s";
             this.lblUploadSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblUploadSpeed.Click += new System.EventHandler(this.info_click);
-            this.lblUploadSpeed.MouseHover += new System.EventHandler(this.info_hover);
             // 
             // label1
             // 
@@ -135,6 +134,7 @@ namespace ChDCStatMenus
 
         private void DeskBand_Load(object sender, EventArgs e)
         {
+            showFrmInfo = ChDCStatMenus.Properties.Settings.Default.ShowInfoForm;
             TotalNetworkSpeed networkSpeed = new TotalNetworkSpeed();
             networkSpeed.Start();
             networkSpeed.NotityInfoEvent += NetworkSpeed_NotityInfoEvent;
@@ -150,25 +150,29 @@ namespace ChDCStatMenus
 
         private void info_click(object sender, EventArgs e)
         {
-            FrmInfo frm = new FrmInfo();
-            frm.Show();
+            if (!showFrmInfo)
+                return;
+            if(frmInfo == null || frmInfo.IsDisposed)
+                frmInfo = new FrmInfo();
+            frmInfo.Visible = !frmInfo.Visible;
+            // frmInfo.Show();
             //frm.Left = Control.MousePosition.X;
             //frm.Top = Control.MousePosition.Y;
-            frm.Top = this.Top + this.Height + 10;
-            frm.Left = this.Left;
+            frmInfo.Top = this.Top + this.Height + 10;
+            frmInfo.Left = this.Left;
         }
 
         FrmInfo frmInfo = null;
 
-        private void info_hover(object sender, EventArgs e)
-        {
-            if(frmInfo == null || frmInfo.IsDisposed)
-            {
-                frmInfo = new FrmInfo();
-                frmInfo.Show();
-                frmInfo.Top = this.Top + this.Height + 10;
-                frmInfo.Left = this.Left;
-            }
-        }
+        //private void info_hover(object sender, EventArgs e)
+        //{
+        //    if(showFrmInfo && (frmInfo == null || frmInfo.IsDisposed))
+        //    {
+        //        frmInfo = new FrmInfo();
+        //        frmInfo.Show();
+        //        frmInfo.Top = this.Top + this.Height + 10;
+        //        frmInfo.Left = this.Left;
+        //    }
+        //}
     }
 }

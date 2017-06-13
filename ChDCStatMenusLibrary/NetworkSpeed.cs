@@ -68,7 +68,10 @@ namespace ChDCStatMenusLibrary
             info.BytesReceived = interfaceStats.BytesReceived;
             info.BytesSentSpeed = oldNetworkSpeedInfo == null ? 0 : (long)((info.BytesSent - oldNetworkSpeedInfo.BytesSent) / (interval / 1000));
             info.BytesReceivedSpeed = oldNetworkSpeedInfo == null ? 0 : (long)((info.BytesReceived - oldNetworkSpeedInfo.BytesReceived) / (interval / 1000));
-
+            if (info.BytesSentSpeed < 0)
+                info.BytesSentSpeed = 0;
+            if (info.BytesReceivedSpeed < 0)
+                info.BytesReceivedSpeed = 0;
             return info;
         }
 
@@ -94,6 +97,10 @@ namespace ChDCStatMenusLibrary
 
             info.BytesSentSpeed += oldNetworkSpeedInfo == null ? 0 : (long)((info.BytesSent - oldNetworkSpeedInfo.BytesSent) / (interval / 1000));
             info.BytesReceivedSpeed += oldNetworkSpeedInfo == null ? 0 : (long)((info.BytesReceived - oldNetworkSpeedInfo.BytesReceived) / (interval / 1000));
+            if (info.BytesSentSpeed < 0)
+                info.BytesSentSpeed = 0;
+            if (info.BytesReceivedSpeed < 0)
+                info.BytesReceivedSpeed = 0;
 
             return info;
         }
